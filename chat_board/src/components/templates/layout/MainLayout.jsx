@@ -1,6 +1,7 @@
 import React from 'react';
 // import styled from 'styled-components';
 import Container from '@mui/material/Container';
+import Header from '../../organisms/layout/Header';
 
 const MainLayout = (props) => {
   return (
@@ -8,7 +9,7 @@ const MainLayout = (props) => {
       <head>
         <title>{props.title}</title>
       </head>
-      <header>test</header>
+      <Header>test</Header>
       <Container maxWidth="md">{props.children}</Container>
     </>
   );
