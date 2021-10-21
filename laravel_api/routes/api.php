@@ -23,6 +23,6 @@ use Illuminate\Http\Request;
 |--------------------------------------------------------------------------
 */
 Route::prefix("user")->group(function () {
-    Route::get("/fitchUsers", "UserController@fetchAllData"); 
-    Route::post("/fitchUserById", "UserController@fetchUserById"); 
+    Route::get("/fetchUsers", "UserController@fetchAllData"); 
+    Route::post("/fetchUserById", "UserController@fetchUserById"); 
 });

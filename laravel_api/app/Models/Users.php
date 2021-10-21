@@ -34,6 +34,8 @@ class Users extends Model
         "name",
         "kana",
         "mail",
+        "theme_color",
+        "is_mail_magazine",
         "password"
     ];
 
