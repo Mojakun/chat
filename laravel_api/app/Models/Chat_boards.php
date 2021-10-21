@@ -1,10 +1,10 @@
 <?php
 
-namespace App\model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Users extends Model
+class Chat_boards extends Model
 {
     //
 }

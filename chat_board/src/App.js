@@ -63,7 +63,7 @@ function App() {
   return (
     <MainLayout title={'home'}>
         <Typography variant="h5" gutterBottom component="div" sx={{ p: 2, pb: 0 }}>
-          掲示板
+          
         </Typography>
         <List sx={{ mb: 2 }}>
           {messages.map(({ id, primary, secondary, person }) => (
