@@ -8,7 +8,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
+import UserAvater from './components/atoms/UserAvatar';
 import axios from 'axios';
 
 const messages = [
@@ -81,7 +82,7 @@ const App = () => {
 
             <ListItem button>
               <ListItemAvatar>
-                <Avatar alt="Profile Picture" src={person} />
+                <UserAvater src={person} />
               </ListItemAvatar>
               <ListItemText primary={primary} secondary={secondary} />
             </ListItem>
