@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import MainLayout from './components/templates/layout/MainLayout';
 import Typography from '@mui/material/Typography';
@@ -9,6 +9,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import Avatar from '@mui/material/Avatar';
+import axios from 'axios';
 
 const messages = [
   {
@@ -59,30 +60,36 @@ const messages = [
   },
 ];
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    const getUser = async () => {
+      const response = await axios.get('/api/user/fetchUsers');
+      console.log(response.data);
+    };
+    getUser();
+  }, []);
+
   return (
     <MainLayout title={'home'}>
-        <Typography variant="h5" gutterBottom component="div" sx={{ p: 2, pb: 0 }}>
-          
-        </Typography>
-        <List sx={{ mb: 2 }}>
-          {messages.map(({ id, primary, secondary, person }) => (
-            <React.Fragment key={id}>
-              {id === 1 && <ListSubheader sx={{ bgcolor: 'background.paper' }}>Today</ListSubheader>}
+      <Typography variant="h5" gutterBottom component="div" sx={{ p: 2, pb: 0 }}></Typography>
+      <List sx={{ mb: 2 }}>
+        {messages.map(({ id, primary, secondary, person }) => (
+          <React.Fragment key={id}>
+            {id === 1 && <ListSubheader sx={{ bgcolor: 'background.paper' }}>Today</ListSubheader>}
 
-              {id === 3 && <ListSubheader sx={{ bgcolor: 'background.paper' }}>Yesterday</ListSubheader>}
+            {id === 3 && <ListSubheader sx={{ bgcolor: 'background.paper' }}>Yesterday</ListSubheader>}
 
-              <ListItem button>
-                <ListItemAvatar>
-                  <Avatar alt="Profile Picture" src={person} />
-                </ListItemAvatar>
-                <ListItemText primary={primary} secondary={secondary} />
-              </ListItem>
-            </React.Fragment>
-          ))}
-        </List>
+            <ListItem button>
+              <ListItemAvatar>
+                <Avatar alt="Profile Picture" src={person} />
+              </ListItemAvatar>
+              <ListItemText primary={primary} secondary={secondary} />
+            </ListItem>
+          </React.Fragment>
+        ))}
+      </List>
     </MainLayout>
   );
-}
+};
 
 export default App;
