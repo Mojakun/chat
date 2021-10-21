@@ -13,6 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+/*
+|--------------------------------------------------------------------------
+| ユーザー関係
+|--------------------------------------------------------------------------
+*/
+Route::prefix("user")->group(function () {
+    Route::get("/fitchUsers", "UserController@fetchAllData"); 
+    Route::post("/fitchUserById", "UserController@fetchUserById"); 
 });

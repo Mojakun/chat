@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->text('name')->comment('名前');
             $table->text('kana')->comment('カナ');
             $table->text('mail')->comment('メールアドレス');
+            $table->integer('theme_color')->length(2)->comment('テーマカラー');
+            $table->integer('is_mail_magazine')->length(2)->comment('テーマカラー');
             $table->text('password')->comment("ログイン用パスワード");
         });
     }
