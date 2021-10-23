@@ -62,7 +62,7 @@ class UsersTableSeeder extends Seeder
                 'name'                    => '櫻井',
                 'kana'                    => 'サクライ',
                 'mail'                    => 'fff@gmail.com',
-                'theme_color'             => 4,
+                'theme_color'             => 0,
                 'is_mail_magazine'        => 1,
                 'password'                => password_hash('fff', PASSWORD_DEFAULT),
             ],
