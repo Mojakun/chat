@@ -5,11 +5,11 @@ import Typography from '@mui/material/Typography';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
-import UserAvater from '../../atoms/UserAvatar'
+import UserAvater from '../../atoms/UserAvatar';
+import Dayjs from '../../../plugins/dayjs';
 
 const ChatCard = (props) => {
   const chatData = props.chatData;
-
   return (
     <ListItem button>
       <ListItemAvatar>
@@ -29,7 +29,7 @@ const ChatCard = (props) => {
             <Typography sx={{ display: 'inline' }} component="span" variant="body2" color="text.primary">
               {chatData.name}
             </Typography>
-            /{chatData.updated_at || chatData.created_at}
+            /{Dayjs.getLocale(chatData.updated_at || chatData.created_at)}
           </React.Fragment>
         }
       />
