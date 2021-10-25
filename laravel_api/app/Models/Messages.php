@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Chat_boards extends Model
+class Messages extends Model
 {
-       /**
+           /**
      * 自動タイムスタンプを無効
      *
      * @var boolean
@@ -18,7 +18,7 @@ class Chat_boards extends Model
      *
      * @var string
      */
-    protected $table = 'chat_boards';
+    protected $table = 'messages';
 
 
      /**
@@ -27,14 +27,14 @@ class Chat_boards extends Model
      * @var array
      */
     private $defaultFetchColumns = [
-        'chat_boards.id',
-        'chat_boards.created_at',
-        'chat_boards.updated_at',
+        'messages.id',
+        'messages.created_at',
+        'messages.updated_at',
         'user_id',
-        'title',
-        'content',
+        'message',
         'users.name',
         'users.theme_color',
+        'users.image_path'
     ];
 
     /**
@@ -47,9 +47,9 @@ class Chat_boards extends Model
     {
         return $query
             ->select($this->defaultFetchColumns)
-            ->where("chat_boards.deleted_at", 0)
-            ->leftJoin("users", "users.id","chat_boards.user_id")
-            ->orderBy('chat_boards.id', 'asc')
+            ->where("messages.deleted_at", 0)
+            ->leftJoin("users", "users.id","messages.user_id")
+            ->orderBy('messages.id', 'asc')
             ->get();
     }
     /**
@@ -68,5 +68,4 @@ class Chat_boards extends Model
             ->select($this->defaultFetchColumns)
             ->get();
     }
-
 }

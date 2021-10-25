@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField';
 const PostField = () => {
 //   const userInfo = props.userInfo;
   return (
-    <ListItem button>
+    <ListItem>
       <ListItemAvatar>
         <UserAvater themeColor={1} />
       </ListItemAvatar>

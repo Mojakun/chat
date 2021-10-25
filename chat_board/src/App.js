@@ -11,7 +11,7 @@ const App = () => {
   const [data, setData] = useState([]);
 
   useEffect(async () => {
-    const result = await axios.get('/api/chat/fetchChats');
+    const result = await axios.get('/api/message/fetchMessages');
     console.log(result);
     setData(result.data);
   }, []);
