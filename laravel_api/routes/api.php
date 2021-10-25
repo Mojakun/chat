@@ -26,3 +26,20 @@ Route::prefix("user")->group(function () {
     Route::get("/fetchUsers", "UserController@fetchAllData"); 
     Route::post("/fetchUserById", "UserController@fetchUserById"); 
 });
+
+/*
+|--------------------------------------------------------------------------
+| 掲示板関係
+|--------------------------------------------------------------------------
+*/
+Route::prefix("message")->group(function () {
+    Route::get("/fetchMessages", "MessageController@fetchAllData"); 
+});
+/*
+|--------------------------------------------------------------------------
+| 掲示板関係
+|--------------------------------------------------------------------------
+*/
+Route::prefix("category")->group(function () {
+    Route::get("/fetchCategories", "CategoryController@fetchAllData"); 
+});

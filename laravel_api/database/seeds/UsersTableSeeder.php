@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
                 'theme_color'             => 1,
                 'is_mail_magazine'        => 1,
                 'password'                => password_hash('aaa', PASSWORD_DEFAULT),
+                'image_path'              => 'https://picsum.photos/id/1005/200/300'
             ],
             [
                 'created_at'              => time(),
@@ -29,6 +30,7 @@ class UsersTableSeeder extends Seeder
                 'theme_color'             => 2,
                 'is_mail_magazine'        => 0,
                 'password'                => password_hash('bbb', PASSWORD_DEFAULT),
+                'image_path'              => 'https://picsum.photos/id/1011/200/300'
             ],
             [
                 'created_at'              => time(),
@@ -38,6 +40,7 @@ class UsersTableSeeder extends Seeder
                 'theme_color'             => 2,
                 'is_mail_magazine'        => 0,
                 'password'                => password_hash('ccc', PASSWORD_DEFAULT),
+                'image_path'              => 'https://picsum.photos/id/1025/200/300'
             ],
             [
                 'created_at'              => time(),
@@ -47,6 +50,7 @@ class UsersTableSeeder extends Seeder
                 'theme_color'             => 3,
                 'is_mail_magazine'        => 1,
                 'password'                => password_hash('ddd', PASSWORD_DEFAULT),
+                'image_path'              => 'https://picsum.photos/id/1027/200/300'
             ],
             [
                 'created_at'              => time(),
@@ -56,15 +60,17 @@ class UsersTableSeeder extends Seeder
                 'theme_color'             => 3,
                 'is_mail_magazine'        => 0,
                 'password'                => password_hash('eee', PASSWORD_DEFAULT),
+                'image_path'              => 'https://picsum.photos/id/1074/200/300'
             ],
             [
                 'created_at'              => time(),
                 'name'                    => '櫻井',
                 'kana'                    => 'サクライ',
                 'mail'                    => 'fff@gmail.com',
-                'theme_color'             => 4,
+                'theme_color'             => 0,
                 'is_mail_magazine'        => 1,
                 'password'                => password_hash('fff', PASSWORD_DEFAULT),
+                'image_path'              => 'https://picsum.photos/id/1082/200/300'
             ],
         ]);
     }

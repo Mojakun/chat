@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Chat_boards extends Model
+class User_message_good extends Model
 {
     //
 }
