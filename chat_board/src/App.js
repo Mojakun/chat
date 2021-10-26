@@ -5,7 +5,8 @@ import MainLayout from './components/templates/layout/MainLayout';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import axios from 'axios';
-import ChatCard from './components/organisms/chat/ChatCard';
+// import ChatCard from './components/organisms/chat/ChatCard';
+import MessageCard from './components/organisms/MessageCard';
 import PostField from './components/organisms/chat/PostField';
 const App = () => {
   const [data, setData] = useState([]);
@@ -23,7 +24,7 @@ const App = () => {
         <PostField />
         {data.map((d) => (
           <React.Fragment key={d.id}>
-            <ChatCard chatData={d} />
+            <MessageCard chatData={d} />
           </React.Fragment>
         ))}
       </List>
