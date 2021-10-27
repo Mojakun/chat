@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Messages;
+use App\Models\Users;
 
 class MessageController extends Controller
 {
@@ -14,7 +15,8 @@ class MessageController extends Controller
      */
     public function fetchAllData(Request $request)
     {
-        $userData = Messages::fetchAll();
-        return response()->json($userData, 200, [], JSON_UNESCAPED_UNICODE);
+        $fetchDatas = Messages::fetchAll();
+        
+        return response()->json($fetchDatas, 200, [], JSON_UNESCAPED_UNICODE);
     }
 }

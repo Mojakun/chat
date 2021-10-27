@@ -7,36 +7,42 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import UserAvater from '../molecules/UserAvatar';
 import CategoryChips from '../molecules/CategoryChips';
-import Dayjs from '../../plugins/dayjs';
+import GoodButton from '../molecules/GoodButton';
+import { styled } from '@mui/system';
 
 const MessageCard = (props) => {
   const chatData = props.chatData;
   return (
-    <ListItem button>
+    <SListItem button>
       <ListItemAvatar>
-        <UserAvater themeColor={chatData.theme_color} />
+        <UserAvater color={chatData.theme_color} src={chatData.src}/>
       </ListItemAvatar>
       <ListItemText
         primary={
           <React.Fragment>
             <Typography sx={{ display: 'inline' }} component="span" variant="body2" color="text.primary">
-              {chatData.message}
+              {chatData.name} / {chatData.updated_at || chatData.created_at}
             </Typography>
-            {chatData.message}
           </React.Fragment>
         }
         secondary={
           <React.Fragment>
+            <p>
+              <Typography sx={{ display: 'inline' }} component="span" variant="body2" color="text.primary">
+                {chatData.message}
+              </Typography>
+            </p>
             <CategoryChips label="test" />
-            <Typography sx={{ display: 'inline' }} component="span" variant="body2" color="text.primary">
-              {chatData.name}
-            </Typography>
-            /{Dayjs.getLocale(chatData.updated_at || chatData.created_at)}
+            <GoodButton />
           </React.Fragment>
         }
       />
-    </ListItem>
+    </SListItem>
   );
 };
+
+const SListItem = styled(ListItem)`
+  align-items: flex-start;
+`;
 
 export default MessageCard;
