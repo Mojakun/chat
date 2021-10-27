@@ -34,7 +34,9 @@ class Messages extends Model
         'message',
         'users.name',
         'users.theme_color',
-        'users.image_path'
+        'users.image_path',
+        'categories.id as category_id'  ,
+        'categories.name as category_name'
     ];
 
     /**
@@ -49,6 +51,7 @@ class Messages extends Model
             ->select($this->defaultFetchColumns)
             ->where("messages.deleted_at", 0)
             ->leftJoin("users", "users.id","messages.user_id")
+            ->leftJoin("categories", "categories.id","messages.category_id")
             ->orderBy('messages.id', 'asc')
             ->get();
     }
@@ -58,7 +61,7 @@ class Messages extends Model
      * @param object $query
      * @return object
      */
-    public function scopeFetchChatById(object $query,$id):object
+    public function scopeFetchMessageById(object $query,$id):object
     {
         return $query
             ->where([
@@ -66,6 +69,25 @@ class Messages extends Model
                 "deleted_at" => 0
             ])
             ->select($this->defaultFetchColumns)
+            ->get();
+    }
+    /**
+     * ユーザー全件取得
+     *
+     * @param object $query
+     * @return object
+     */
+    public function scopeFetchMessageByCategory(object $query,$category_id):object
+    {
+        return $query
+            ->select($this->defaultFetchColumns)
+            ->where([
+                "category_id" => $category_id,
+                "messages.deleted_at" => 0
+            ])
+            ->leftJoin("users", "users.id","messages.user_id")
+            ->leftJoin("categories", "categories.id","messages.category_id")
+            ->orderBy('messages.id', 'asc')
             ->get();
     }
 }

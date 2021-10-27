@@ -19,4 +19,17 @@ class MessageController extends Controller
         
         return response()->json($fetchDatas, 200, [], JSON_UNESCAPED_UNICODE);
     }
+     /**
+     * メッセージ情報を全件取得
+     *
+     * @return JSON
+     */
+    public function fetchMessagesByCategory(Request $request)
+    {
+        $category_id = $request->category_id;
+
+        $fetchDatas = Messages::fetchMessageByCategory($category_id);
+        
+        return response()->json($fetchDatas, 200, [], JSON_UNESCAPED_UNICODE);
+    }
 }

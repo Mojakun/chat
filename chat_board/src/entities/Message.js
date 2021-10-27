@@ -1,7 +1,7 @@
 import ThemeColorModel from '../models/ThemeColorModel';
 import Dayjs from '../plugins/dayjs';
 
-export default class Messages {
+export default class Message {
   constructor(data) {
     this._data = data;
   }
