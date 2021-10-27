@@ -7,6 +7,7 @@ dayjs.extend(relativeTime);
 
 export default class Dayjs {
   static getLocale(timestamp) {
+    if (timestamp === 0) return timestamp;
     const formatedDate = this.timeStampFormatToDate(timestamp);
     return dayjs(formatedDate).format('YYYY年MM月DD月');
   }

@@ -1,3 +1,6 @@
+import ThemeColorModel from '../models/ThemeColorModel';
+import Dayjs from '../plugins/dayjs';
+
 export default class Messages {
   constructor(data) {
     this._data = data;
@@ -8,11 +11,11 @@ export default class Messages {
   }
 
   get created_at() {
-    return this._data.created_at;
+    return Dayjs.getLocale(this._data.created_at);
   }
 
   get updated_at() {
-    return this._data.updated_at;
+    return Dayjs.getLocale(this._data.updated_at);
   }
 
   get message() {
@@ -21,6 +24,17 @@ export default class Messages {
 
   get user_id() {
     return this._data.user_id;
+  }
+  get name() {
+    return this._data.name;
+  }
+
+  get theme_color() {
+    return ThemeColorModel.getThemeColor(this._data.theme_color);
+  }
+
+  get src() {
+    return this._data.image_path;
   }
 
   get category_id() {

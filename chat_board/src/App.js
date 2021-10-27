@@ -8,13 +8,19 @@ import axios from 'axios';
 // import ChatCard from './components/organisms/chat/ChatCard';
 import MessageCard from './components/organisms/MessageCard';
 import PostField from './components/organisms/chat/PostField';
+import Messages from './entities/Messages';
 const App = () => {
   const [data, setData] = useState([]);
 
   useEffect(async () => {
     const result = await axios.get('/api/message/fetchMessages');
-    console.log(result);
-    setData(result.data);
+    if (result.data) {
+      const EntityPassedDatas = result.data.map((data) => {
+        let EntityPassedData = new Messages(data);
+        return EntityPassedData;
+      });
+      setData(EntityPassedDatas);
+    }
   }, []);
 
   return (
