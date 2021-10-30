@@ -10,12 +10,11 @@ import CategoryChips from '../molecules/CategoryChips';
 import GoodButton from '../molecules/GoodButton';
 import { styled } from '@mui/system';
 
-const MessageCard = (props) => {
-  const chatData = props.chatData;
+const MessageCard = ({ chatData }) => {
   return (
     <SListItem button>
       <ListItemAvatar>
-        <UserAvater color={chatData.theme_color} src={chatData.src}/>
+        <UserAvater color={chatData.theme_color} src={chatData.src} />
       </ListItemAvatar>
       <ListItemText
         primary={
@@ -32,7 +31,7 @@ const MessageCard = (props) => {
                 {chatData.message}
               </Typography>
             </p>
-            <CategoryChips label="test" />
+            <CategoryChips label={chatData.category_name} />
             <GoodButton />
           </React.Fragment>
         }
