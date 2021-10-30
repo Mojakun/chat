@@ -1,13 +1,14 @@
 import React from 'react';
 // import styled from 'styled-components';
 import Container from '@mui/material/Container';
-import Header from '../../organisms/layout/Header';
+import Header from '../organisms/layout/Header';
 
 const MainLayout = (props) => {
   return (
     <>
       <head>
-        <title>{props.title}</title>
+        <meta name="description" content="以前作ったメタ言語スターターキットの内容をReact環境で再現してみる" />
+        <title>Reactとメタ言語の比較</title>
       </head>
       <Header>test</Header>
       <Container maxWidth="md">{props.children}</Container>
