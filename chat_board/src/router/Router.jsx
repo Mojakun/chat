@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
-import Login from '../pages/auth/Login';
+import SingUp from '../pages/auth/SingUp';
 import Home from '../pages/index';
 
 const Router = () => {
@@ -9,7 +9,7 @@ const Router = () => {
         <Home />
       </Route>
       <Route path="/login">
-        <Login />
+        <SingUp />
       </Route>
     </Switch>
   );
