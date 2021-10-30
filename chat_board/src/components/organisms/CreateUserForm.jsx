@@ -4,13 +4,14 @@ import CreateUserNameField from '../../components/molecules/CreateUserNameField'
 import CreateUserMailField from '../../components/molecules/CreateUserMail';
 import CreateUserPassword from '../../components/molecules/CreateUserPasswordField';
 import Box from '@mui/material/Box';
-const CreateUserForm = () => {
+
+const CreateUserForm = ({ userData, onChange }) => {
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
-        <CreateUserNameField></CreateUserNameField>
-        <CreateUserMailField ></CreateUserMailField>
-        <CreateUserPassword></CreateUserPassword>
+        <CreateUserNameField value={userData.name} onChange={onChange}></CreateUserNameField>
+        <CreateUserMailField value={userData.mail} onChange={onChange}></CreateUserMailField>
+        <CreateUserPassword value={userData.password} onChange={onChange}></CreateUserPassword>
       </Box>
     </>
   );

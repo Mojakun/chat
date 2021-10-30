@@ -1,8 +1,10 @@
 import * as React from 'react';
-import TextField from '../atoms/TextField'
+import TextField from '../atoms/TextField';
 
-const CreateUserNameField = () => {
-  return <TextField id="outlined-basic" label="名前" variant="outlined" />;
+const CreateUserNameField = ({ value, onChange }) => {
+  return (
+    <TextField name="name" id="outlined-basic" label="名前" variant="outlined" value={value} onChange={onChange} />
+  );
 };
 
 export default CreateUserNameField;
