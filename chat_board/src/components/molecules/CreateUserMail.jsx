@@ -1,10 +1,8 @@
 import * as React from 'react';
-import TextField from '../atoms/TextField';
+import MailField from '../atoms/MailField';
 
 const CreateUserMailField = ({ value, onChange }) => {
-  return (
-    <TextField name="mail" label="メールアドレス" variant="outlined" type="mail" value={value} onChange={onChange} />
-  );
+  return <MailField name="mail" label="メールアドレス" variant="outlined" value={value} onChange={onChange} />;
 };
 
 export default CreateUserMailField;

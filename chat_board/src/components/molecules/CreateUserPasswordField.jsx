@@ -1,17 +1,7 @@
 import * as React from 'react';
-import TextField from '../atoms/TextField';
-
+import PasswordField from '../atoms/PasswordField';
 const CreateUserPassword = ({ value, onChange }) => {
-  return (
-    <TextField
-      name="password"
-      label="パスワード"
-      variant="outlined"
-      type="password"
-      value={value}
-      onChange={onChange}
-    />
-  );
+  return <PasswordField name="password" label="パスワード" variant="outlined" value={value} onChange={onChange} />;
 };
 
 export default CreateUserPassword;
