@@ -1,4 +1,4 @@
-export default class category {
+export default class Category {
   constructor(data) {
     this._data = data;
   }

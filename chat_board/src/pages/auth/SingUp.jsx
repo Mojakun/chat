@@ -4,37 +4,42 @@ import MainLayout from '../../components/templates/MainLayout';
 import CreateUserForm from '../../components/organisms/CreateUserForm';
 
 const SingUp = () => {
-  const [userData, setUserData] = useState({ name: '', mail: '', password: '' });
-
-  console.log(setUserData);
-  console.log(useCallback);
-
-  const handleUserDateChange = useCallback(
-    //ObjectのuserStateにセットできない...
-
+  const [userName, setUserName] = useState('');
+  const [userMail, setUserMail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+  const onChangeUserName = useCallback(
     (e) => {
-      const targetName = e.target.name;
-      console.log(targetName);
-      if (targetName === 'name') {
-        setUserData({ ...userData, name: e.target.value });
-      }
-      if (targetName === 'mail') {
-        setUserData({ ...userData, mail: e.target.value });
-      }
-      if (targetName === 'password') {
-        setUserData({ ...userData, password: e.target.value });
-      }
+      setUserName(e.target.value);
     },
-    [setUserData]
+    [userName]
+  );
+  const onChangeUserMail = useCallback(
+    (e) => {
+      setUserMail(e.target.value);
+    },
+    [userMail]
+  );
+  const onChangeUserPassword = useCallback(
+    (e) => {
+      setUserPassword(e.target.value);
+    },
+    [userPassword]
   );
 
   return (
     <MainLayout>
-      <CreateUserForm userData={userData} onChange={handleUserDateChange} />
+      <CreateUserForm
+        userName={userName}
+        userMail={userMail}
+        userPassword={userPassword}
+        onChangeUserName={onChangeUserName}
+        onChangeUserMail={onChangeUserMail}
+        onChangeUserPassword={onChangeUserPassword}
+      />
       <div>
-        <p>{userData.name}</p>
-        <p>{userData.mail}</p>
-        <p>{userData.password}</p>
+        <p>{userName}</p>
+        <p>{userMail}</p>
+        <p>{userPassword}</p>
       </div>
     </MainLayout>
   );
