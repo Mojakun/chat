@@ -28,7 +28,7 @@ const Home = () => {
     const params = {
       category_id: selectedCategoryId,
     };
-    let result = await axios.post('/api/message/fetchMessagesByCategory', params);
+    let result = await axios.get('/api/messageCategory', {params});
     if (!result.data) return;
     const messages = result.data.map((message) => {
       return new Message(message);

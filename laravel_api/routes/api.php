@@ -33,8 +33,11 @@ Route::prefix("user")->group(function () {
 |--------------------------------------------------------------------------
 */
 Route::prefix("message")->group(function () {
-    Route::get("/fetchMessages", "MessageController@fetchAllData"); 
-    Route::post("/fetchMessagesByCategory", "MessageController@fetchMessagesByCategory"); 
+    Route::get("/", "MessageController@fetchAll");
+});
+
+Route::prefix("messageCategory")->group(function () {
+    Route::get("/", "MessageCategoryController@fetchAll");
 });
 /*
 |--------------------------------------------------------------------------
