@@ -1,34 +1,69 @@
-// import logo from './logo.svg';
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import MainLayout from './components/templates/layout/MainLayout';
-import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
-import axios from 'axios';
-import ChatCard from './components/organisms/chat/ChatCard';
-import PostField from './components/organisms/chat/PostField';
-const App = () => {
-  const [data, setData] = useState([]);
+// // import logo from './logo.svg';
+// import React, { useState, useEffect, useCallback } from 'react';
+// import './App.css';
+// import MainLayout from './components/templates/MainLayout';
+// import axios from 'axios';
+// // import ChatCard from './components/organisms/chat/ChatCard';
+// import MessageCard from './components/organisms/MessageCard';
+// import PostField from './components/organisms/chat/PostField';
+// import Message from './entities/Message';
+// import Category from './entities/Category';
+// import Divider from '@mui/material/Divider';
+// import CategoryTabs from './components/organisms/CategoryTabs';
+// import { Typography, List } from '@mui/material/';
 
-  useEffect(async () => {
-    const result = await axios.get('/api/message/fetchMessages');
-    console.log(result);
-    setData(result.data);
-  }, []);
+// const App = () => {
+//   const [categories, setCategories] = useState([]);
+//   const [selectedCategoryId, setSelectedCategoryId] = useState(2);
+//   const [data, setData] = useState([]);
 
-  return (
-    <MainLayout title={'home'}>
-      <Typography variant="h5" gutterBottom component="div" sx={{ p: 2, pb: 0 }}></Typography>
-      <List sx={{ mb: 2 }}>
-        <PostField />
-        {data.map((d) => (
-          <React.Fragment key={d.id}>
-            <ChatCard chatData={d} />
-          </React.Fragment>
-        ))}
-      </List>
-    </MainLayout>
-  );
-};
+//   const handleCategoryChange = useCallback(
+//     (e, selectedCategory) => {
+//       setSelectedCategoryId(selectedCategory);
+//     },
+//     [setSelectedCategoryId]
+//   );
 
-export default App;
+//   useEffect(async () => {
+//     const params = {
+//       category_id: selectedCategoryId,
+//     };
+//     let result = await axios.post('/api/message/fetchMessagesByCategory', params);
+//     if (!result.data) return;
+//     const messages = result.data.map((message) => {
+//       return new Message(message);
+//     });
+//     setData(messages);
+
+//     result = await axios.get('/api/category/fetchCategories');
+//     if (!result.data) return;
+//     const categories = result.data.map((category) => {
+//       return new Category(category);
+//     });
+
+//     setCategories(categories);
+//   }, [selectedCategoryId]);
+
+//   return (
+//     <MainLayout title={'home'}>
+//       <Typography variant="h5" gutterBottom component="div" sx={{ p: 2, pb: 0 }}></Typography>
+
+//       <List sx={{ mb: 2 }}>
+//         <PostField />
+//         <CategoryTabs
+//           categories={categories}
+//           selectedCategoryId={selectedCategoryId}
+//           handleCategoryChange={handleCategoryChange}
+//         />
+//         {data.map((d) => (
+//           <React.Fragment key={d.id}>
+//             <MessageCard chatData={d} />
+//             <Divider />
+//           </React.Fragment>
+//         ))}
+//       </List>
+//     </MainLayout>
+//   );
+// };
+
+// export default App;

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
-import UserAvater from '../../atoms/UserAvatar';
+import UserAvater from '../../molecules/UserAvatar';
 import Dayjs from '../../../plugins/dayjs';
 
 const ChatCard = (props) => {
